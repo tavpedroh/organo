@@ -4,7 +4,8 @@ import ListaSuspensa from '../ListaSupensa';
 import Botao from '../Botao';
 import { useState } from 'react';
 
-const Formulario = () => {
+
+const Formulario = (props) => {
 
     const posicoes = [
         '',
@@ -22,7 +23,12 @@ const Formulario = () => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault();
-        console.log('Form submetido =>',nome,apelido,imagem, posicao);
+        props.aoJogadorCadastrado({
+            nome: nome,
+            apelido: apelido,
+            imagem: imagem,
+            posicao: posicao
+        })
     }
 
     return (
