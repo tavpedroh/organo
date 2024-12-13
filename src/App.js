@@ -38,8 +38,13 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario aoJogadorCadastrado={jogador => aoNovoJogadorAdcionado(jogador)} />
-      {posicoes.map(posicao => <Posicao key={posicao.nome} nome={posicao.nome} corPrimaria={posicao.corPrimaria} corSecundaria={posicao.corSecundaria}/>)}
+      <Formulario posicoes={posicoes.map(posicao => posicao.nome)} aoJogadorCadastrado={jogador => aoNovoJogadorAdcionado(jogador)} />
+      {posicoes.map(posicao => <Posicao 
+        key={posicao.nome} 
+        nome={posicao.nome} corPrimaria={posicao.corPrimaria} 
+        corSecundaria={posicao.corSecundaria}
+        jogadores={jogadores.filter(jogador => jogador.posicao === posicao.nome)}
+        />)}
     </div>
   );
 }
