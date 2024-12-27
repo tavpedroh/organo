@@ -31,7 +31,6 @@ function App() {
   const [jogadores, setJogadores] = useState([])
 
   const aoNovoJogadorAdcionado = (jogador) => {
-    console.log(jogador)
     setJogadores([...jogadores, jogador])
   }
 
